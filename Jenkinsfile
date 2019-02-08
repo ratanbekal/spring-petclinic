@@ -17,19 +17,13 @@ node{
     } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
   }
   stage('S3 Upload') {
-
-        dir('PWD3'){
-
             pwd(); //Log current directory
-
             withAWS(region:'us-east-2',credentials:'d41ae28d-934b-4ec8-b038-8c9529880851') {
 
                  def identity=awsIdentity();//Log AWS credentials
 
                 // Upload files from working directory 'dist' in your project workspace
-                s3Upload(bucket:"spring-app-demo", workingDir:'target', includePathPattern:'**/*');
-            }
-
-        };
+                s3Upload(bucket:"elasticbeanstalk-us-east-2-044661814431", workingDir:'target', includePathPattern:'**/jar');
+            }    
     }
 }
