@@ -23,7 +23,7 @@ node{
                  def identity=awsIdentity();//Log AWS credentials
 
                 // Upload files from working directory 'dist' in your project workspace
-                s3Upload(bucket:"elasticbeanstalk-us-east-2-044661814431", workingDir:'target', includePathPattern:'**/jar');
+                s3Upload(bucket:"elasticbeanstalk-us-east-2-044661814431", workingDir:'target', includePathPattern:'**/*.jar');
             }    
     }
 }
